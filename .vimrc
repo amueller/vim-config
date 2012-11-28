@@ -3,8 +3,14 @@ se nowrap
 
 call pathogen#infect()
 
+iab ipdb from IPython.core.debugger import Tracer 
+iab iplt import matplotlib.pyplot as plt
+
 filetype off
 filetype plugin indent on
+
+" ctags open vertical split
+map <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 set ts=4
 set wildmenu
@@ -13,6 +19,7 @@ nmap . .`[
 
 "let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 " always keep a statusline
 set laststatus=2
