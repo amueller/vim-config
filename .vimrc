@@ -3,7 +3,7 @@ se nowrap
 
 call pathogen#infect()
 
-iab ipdb from IPython.core.debugger import Tracer 
+iab ipdb from IPython.core.debugger import Tracer
 iab iplt import matplotlib.pyplot as plt
 
 filetype off
@@ -110,7 +110,7 @@ let g:xptemplate_key = '<Tab>'
 
 " undo persistence
 "set undofile
-"set undodir=~/.vim/undos
+set undodir=~/.vim/undos
 
 " conceiling
 "set cole=2
@@ -122,12 +122,12 @@ set expandtab
 set sw=4
 
 " quit if only quickfix window left
-let s:cpo_save = &cpo
-set cpo&vim
-augroup plugin-now-quit-if-only-quickfix-buffer-left
-    autocmd!
-    autocmd WinEnter * if winnr('$') == 1 && &buftype == 'quickfix' | quit | endif
-augroup end
-let &cpo = s:cpo_save
-unlet s:cpo_save
+"let s:cpo_save = &cpo
+"set cpo&vim
+"augroup plugin-now-quit-if-only-quickfix-buffer-left
+    "autocmd!
+    "autocmd WinEnter * if winnr('$') == 1 && &buftype == 'quickfix' | quit | endif
+"augroup end
+"let &cpo = s:cpo_save
+"unlet s:cpo_save
 
