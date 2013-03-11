@@ -3,7 +3,7 @@ se nowrap
 
 call pathogen#infect()
 
-iab ipdb from IPython.core.debugger import Tracer 
+iab ipdb from IPython.core.debugger import Tracer
 iab iplt import matplotlib.pyplot as plt
 
 filetype off
@@ -77,45 +77,38 @@ au FileType python hi link pythonClass Type
 let g:NERDShutUp=1
 
 " requires vim-python and python-git
-function! CommitFile()
-python << EOF
-import vim, git
-curfile = vim.current.buffer.name
-if curfile:
-    try:
-        repo = git.Repo(curfile)
-        repo.git.add(curfile)
-        repo.git.commit(m='Automatic Update: File saved.')
-        i = os.popen("ifconfig eth0 | grep inet | awk '{print $2}' | sed -e s/.*://", "r").read()
-        if i.startswith('10.7.7.231'): os.popen("cd `dirname %s` ; git push bigcuda1 master 2>&1 > /dev/null" % curfile).read()
-    except (git.InvalidGitRepositoryError, git.GitCommandError):
-        pass
-EOF
-endfunction
-au BufWritePost *.wiki call CommitFile()
-let g:vimwiki_folding=1
-let g:vimwiki_fold_lists=1
+"function! CommitFile()
+"python << EOF
+"import vim, git
+"curfile = vim.current.buffer.name
+"if curfile:
+    "try:
+        "repo = git.Repo(curfile)
+        "repo.git.add(curfile)
+        "repo.git.commit(m='Automatic Update: File saved.')
+        "i = os.popen("ifconfig eth0 | grep inet | awk '{print $2}' | sed -e s/.*://", "r").read()
+        "if i.startswith('10.7.7.231'): os.popen("cd `dirname %s` ; git push bigcuda1 master 2>&1 > /dev/null" % curfile).read()
+    "except (git.InvalidGitRepositoryError, git.GitCommandError):
+        "pass
+"EOF
+"endfunction
+"au BufWritePost *.wiki call CommitFile()
+"let g:vimwiki_folding=1
+"let g:vimwiki_fold_lists=1
 
 
 " Python
-let $PYTHONPATH .= ":~/.vim/ropevim-0.3-rc"
-let ropevim_vim_completion=1
-let ropevim_extended_complete=1
-let g:ropevim_autoimport_modules = ["os", "sys", "pdb"]
+"let $PYTHONPATH .= ":~/.vim/ropevim-0.3-rc"
+"let ropevim_vim_completion=1
+"let ropevim_extended_complete=1
+"let g:ropevim_autoimport_modules = ["os", "sys", "pdb"]
 se nocompatible
 
-" XPT
-let g:xptemplate_vars="$SParg=&$author=Hannes Schulz&$email=<schulz at ais dot uni-bonn dot de>"
-let g:xptemplate_key = '<Tab>'
 
 " undo persistence
-"set undofile
-"set undodir=~/.vim/undos
+set undofile
+set undodir=~/.vim/undos
 
-" conceiling
-"set cole=2
-"hi Conceal guibg=white guifg=black
-"let g:tex_conceal="dgm"
 
 let g:syntastic_cpp_check_header = 1
 set expandtab
