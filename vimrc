@@ -1,7 +1,10 @@
+execute pathogen#infect()
+
+filetype off
+filetype plugin indent on
+
 set nocompatible
 se nowrap
-
-execute pathogen#infect()
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -15,16 +18,11 @@ let g:syntastic_check_on_wq = 0
 iab ipdb from IPython.core.debugger import Tracer
 iab iplt import matplotlib.pyplot as plt
 
-filetype off
-filetype plugin indent on
-
 set ts=4
 
 " always keep a statusline
 set laststatus=2
 
-" lets see whether that works out.
-imap jj <Esc>
 
 " write files for which we do not have rights by using sudo to copy a tmp-file
 cmap w!! %!sudo tee > /dev/null %
@@ -32,13 +30,6 @@ cmap w!! %!sudo tee > /dev/null %
 " restore visual mode selection after indenting
 vmap < <gv
 vmap > >gv
-
-" show the (partial) command in last line of screen, turn off for slow
-" terminals
-set showcmd
-
-" completion: show more infos
-set showfulltag
 
 
 let mapleader = ","
